@@ -407,5 +407,18 @@ class TestSuite {
         assertNotNull(stay);
     }
 
+    @Test @DisplayName("Stay instantiation with invalid entry and exit times")
+    void testInvalidStayEntryAndExit() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Stay(1, 1, entryDateTime, exitDateTime, charge);
+        });
+
+        System.out.println("Error: " + exception.getMessage());
+        assertEquals("Entry date time must be before exit date time", exception.getMessage());
+    }
 
 }
