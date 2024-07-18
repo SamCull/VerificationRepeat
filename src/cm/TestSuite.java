@@ -421,4 +421,15 @@ class TestSuite {
         assertEquals("Entry date time must be before exit date time", exception.getMessage());
     }
 
+    @Test @DisplayName("Stay instantiation with same gate for entry and exit")
+    void testSameGateForEntryAndExit() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
+
+        assertNotNull(stay); 
+    }
+
 }
