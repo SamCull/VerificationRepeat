@@ -429,7 +429,19 @@ class TestSuite {
 
         Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
 
-        assertNotNull(stay); 
+        assertNotNull(stay);
     }
 
+    @Test @DisplayName("Stay instantiation with different gates in the same CarPark")
+    void testDifferentGatesSameCarPark() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        Stay stay = new Stay(1, 2, entryDateTime, exitDateTime, charge);
+        stay.setCarParkId(1);
+
+        assertNotNull(stay);
+    }
+ 
 }
