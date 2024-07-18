@@ -443,5 +443,20 @@ class TestSuite {
 
         assertNotNull(stay);
     }
- 
+
+    @Test @DisplayName("Stay instantiation with different gates in different CarParks")
+    void testDifferentGatesDifferentCarParks() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        Stay stay = new Stay(1, 3, entryDateTime, exitDateTime, charge);
+        stay.setCarParkId(1);
+        stay.setExitCarParkId(2);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, stay::validateCarParks);
+
+        System.out.println("Error: " + exception.getMessage());
+        assertEquals("Entry and exit gates must belong to the same CarPark", exception.getMessage());
+    }
 }
