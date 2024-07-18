@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -393,4 +394,18 @@ class TestSuite {
     void RateCalculate_WhiteBox_TestCase2b(){
         assertEquals(new BigDecimal("15.22"), new Rate(CarParkKind.STUDENT, new BigDecimal("5.0"), new BigDecimal("2.0"), new ArrayList<>(Arrays.asList(new Period(1, 5), new Period(10,12))), new ArrayList<>(Arrays.asList(new Period(13, 16), new Period(18,20)))).calculate(new Period(1, 5)));
     }
+
+    /* STAY Tests */
+    @Test @DisplayName("Stay instantiation with valid entry and exit times")
+    void testValidStayEntryAndExit() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
+
+        assertNotNull(stay);
+    }
+
+
 }
