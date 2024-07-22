@@ -485,4 +485,16 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Entry or exit date time cannot be null", exception.getMessage());
     }
+
+    @Test @DisplayName("Stay instantiation with valid charge")
+    void testValidCharge() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
+
+        assertNotNull(stay);
+        assertEquals(charge, stay.getCharge()); 
+    }
 }
