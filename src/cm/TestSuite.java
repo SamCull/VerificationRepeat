@@ -495,6 +495,20 @@ class TestSuite {
         Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
 
         assertNotNull(stay);
-        assertEquals(charge, stay.getCharge()); 
+        assertEquals(charge, stay.getCharge());
+    }
+
+    @Test @DisplayName("Stay instantiation with negative charge")
+    void testNegativeCharge() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("-5.00");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Stay(1, 1, entryDateTime, exitDateTime, charge);
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Charge cannot be negative", exception.getMessage());
     }
 }
