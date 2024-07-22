@@ -472,4 +472,17 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Entry or exit date time cannot be null", exception.getMessage());
     }
+
+    @Test @DisplayName("Stay instantiation with null exitDateTime")
+    void testNullExitDateTime() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        BigDecimal charge = new BigDecimal("20.00");
+
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            new Stay(1, 1, entryDateTime, null, charge);
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Entry or exit date time cannot be null", exception.getMessage());
+    }
 }
