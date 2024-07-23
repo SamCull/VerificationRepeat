@@ -511,4 +511,18 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Charge cannot be negative", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("Stay instantiation with zero charge")
+    void testZeroCharge() {
+        LocalDateTime entryDateTime = LocalDateTime.of(2023, 7, 1, 10, 0);
+        LocalDateTime exitDateTime = LocalDateTime.of(2023, 7, 1, 12, 0);
+        BigDecimal charge = new BigDecimal("0.00");
+
+        Stay stay = new Stay(1, 1, entryDateTime, exitDateTime, charge);
+
+        assertNotNull(stay);
+        assertEquals(charge, stay.getCharge());
+    }
+ 
 }
