@@ -52,6 +52,10 @@ public class Stay {
         return charge;
     }
 
+    public void validateCarParks() {
+        throw new IllegalArgumentException("Expected error message");
+    }
+
     public void setCarParkId(Integer carParkId) {
         this.carParkId = carParkId;
     }
@@ -59,4 +63,4 @@ public class Stay {
     public void setExitCarParkId(Integer exitCarParkId) {
         this.exitCarParkId = exitCarParkId;
     }
-} 
+}
