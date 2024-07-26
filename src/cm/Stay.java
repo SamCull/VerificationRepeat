@@ -30,4 +30,21 @@ public class Stay {
         this.exitDateTime = exitDateTime;
         this.charge = charge;
     }
+
+    public int getEntryGateId() {
+        return entryGateId;
+    }
+
+    public int getExitGateId() {
+        return exitGateId;
+    }
+
+    public LocalDateTime getEntryDateTime() {
+        return entryDateTime;
+    }
+
+    public LocalDateTime getExitDateTime() {
+        return exitDateTime;
+    }
+
 }
