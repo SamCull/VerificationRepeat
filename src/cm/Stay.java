@@ -53,7 +53,7 @@ public class Stay {
     }
 
     public void validateCarParks() {
-        throw new IllegalArgumentException("Expected error message");
+        throw new IllegalArgumentException("Invalid number of car parks");
     }
 
     public void setCarParkId(Integer carParkId) {
