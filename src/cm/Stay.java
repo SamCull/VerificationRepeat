@@ -31,6 +31,7 @@ public class Stay {
         this.charge = charge;
     }
 
+    /*
     public int getEntryGateId() {
         return entryGateId;
     }
@@ -46,5 +47,16 @@ public class Stay {
     public LocalDateTime getExitDateTime() {
         return exitDateTime;
     }
+*/
+    public BigDecimal getCharge() {
+        return charge;
+    }
 
-}
+    public void setCarParkId(Integer carParkId) {
+        this.carParkId = carParkId;
+    }
+
+    public void setExitCarParkId(Integer exitCarParkId) {
+        this.exitCarParkId = exitCarParkId;
+    }
+} 
