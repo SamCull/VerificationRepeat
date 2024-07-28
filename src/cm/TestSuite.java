@@ -524,5 +524,14 @@ class TestSuite {
         assertNotNull(stay);
         assertEquals(charge, stay.getCharge());
     }
- 
+
+    /* GATE Tests */
+    @Test @DisplayName("Gate instantiation with valid data")
+    void testValidGateCreation() {
+        Gate gate = new Gate(1, "Entrance A");
+
+        assertNotNull(gate);
+        assertEquals(1, gate.getGateId());
+        assertEquals("Entrance A", gate.getLocation());
+    }
 }
