@@ -582,5 +582,18 @@ class TestSuite {
         gate.setLocation("Entrance B");
 
         assertEquals("Entrance B", gate.getLocation());
-    } 
+    }
+
+    @Test
+    @DisplayName("Gate update with null gateId")
+    void testInvalidGateUpdateWithNullID() {
+        Gate gate = new Gate(1, "Entrance A");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            gate.setGateId(null);
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Gate ID must be a non-negative integer", exception.getMessage());
+    }
 }
