@@ -554,5 +554,15 @@ class TestSuite {
 
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Gate ID must be a non-negative integer", exception.getMessage());
-    } 
+    }
+
+    @Test @DisplayName("Gate instantiation with null location")
+    void testNullLocation() {
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            new Gate(1, null);
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Location cannot be null or empty", exception.getMessage());
+    }
 }
