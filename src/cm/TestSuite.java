@@ -544,4 +544,15 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Gate ID must be a non-negative integer", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("Gate instantiation with negative gateId")
+    void testNegativeGateID() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Gate(-1, "Entrance A");
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Gate ID must be a non-negative integer", exception.getMessage());
+    } 
 }
