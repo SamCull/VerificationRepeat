@@ -575,4 +575,12 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Location cannot be null or empty", exception.getMessage());
     }
+
+    @Test @DisplayName("Gate update with valid data")
+    void testValidGateUpdate() {
+        Gate gate = new Gate(1, "Entrance A");
+        gate.setLocation("Entrance B");
+
+        assertEquals("Entrance B", gate.getLocation());
+    } 
 }
