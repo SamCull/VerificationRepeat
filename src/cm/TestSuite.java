@@ -596,4 +596,14 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Gate ID must be a non-negative integer", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("Gate bi-directionality")
+    void testGateBiDirectionality() {
+        Gate gate = new Gate(1, "Main Gate");
+
+        assertNotNull(gate);
+        assertEquals(1, gate.getGateId());
+        assertEquals("Main Gate", gate.getLocation());
+    }
 }
