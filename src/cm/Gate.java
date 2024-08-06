@@ -15,5 +15,14 @@ public class Gate {
         this.gateId = gateId;
         this.location = location;
     }
+    public Integer getGateId() {
+        return gateId;
+    }
 
+    public void setGateId(Integer gateId) {
+        if (gateId == null || gateId < 0) {
+            throw new IllegalArgumentException("Gate ID must be a non-negative integer");
+        }
+        this.gateId = gateId;
+    }
 }
