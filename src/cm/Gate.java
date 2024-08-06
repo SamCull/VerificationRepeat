@@ -25,4 +25,14 @@ public class Gate {
         }
         this.gateId = gateId;
     }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        if (location == null || location.isEmpty()) {
+            throw new IllegalArgumentException("Location cannot be null or empty");
+        }
+        this.location = location;
+    } 
 }
