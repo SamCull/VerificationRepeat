@@ -606,4 +606,17 @@ class TestSuite {
         assertEquals(1, gate.getGateId());
         assertEquals("Main Gate", gate.getLocation());
     }
-}
+
+    @Test
+    @DisplayName("Gate instantiation with duplicate gateId")
+    void testDuplicateGateID() {
+        Gate gate1 = new Gate(1, "Entrance A");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Gate(1, "Secondary Entrance");
+        });
+
+        System.out.println("Caught exception: " + exception.getMessage());
+        assertEquals("Gate ID cannot be a duplicate ID", exception.getMessage());
+    }
+} 
