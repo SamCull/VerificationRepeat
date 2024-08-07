@@ -565,7 +565,7 @@ class TestSuite {
         System.out.println("Caught exception: " + exception.getMessage());
         assertEquals("Location cannot be null or empty", exception.getMessage());
     }
- 
+
 
     @Test @DisplayName("Gate instantiation with empty location")
     void testEmptyLocation() {
