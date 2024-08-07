@@ -53,7 +53,9 @@ public class Stay {
     }
 
     public void validateCarParks() {
-        throw new IllegalArgumentException("Invalid number of car parks");
+        if (this.carParkId == null || this.exitCarParkId == null || !Objects.equals(this.carParkId, this.exitCarParkId)) {
+            throw new IllegalArgumentException("Entry and exit gates must belong to the same CarPark");
+        }
     }
 
     public void setCarParkId(Integer carParkId) {

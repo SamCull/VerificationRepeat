@@ -12,6 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestSuite {
+
     /*PERIOD TEST START*/
     @Test
     @DisplayName("Period instantiation")
