@@ -2,6 +2,7 @@ package cm;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,6 +13,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestSuite {
+    @BeforeEach
+    void resetGateIds() {
+        Gate.resetGateIds();
+    }
 
     /*PERIOD TEST START*/
     @Test
@@ -535,6 +540,13 @@ class TestSuite {
         assertEquals(1, gate.getGateId());
         assertEquals("Entrance A", gate.getLocation());
     }
+
+    @Test @DisplayName("Setting a valid gateId")
+    void testSetValidGateId() {
+        Gate gate = new Gate(1, "Entrance A");
+        gate.setGateId(2);
+        assertEquals(2, gate.getGateId());
+    } 
 
     @Test @DisplayName("Gate instantiation with null gateId")
     void testNullGateID() {
